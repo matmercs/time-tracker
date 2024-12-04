@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<idea-plugin>
+    <id>com.example.timetracker</id>
+    <name>Time Tracker</name>
+    <vendor email="support@example.com" url="http://www.example.com">Example</vendor>
+
+    <description><![CDATA[
+    Simple time tracking plugin that shows how long you work with each file
+    ]]></description>
+
+    <depends>com.intellij.modules.platform</depends>
+
+    <extensions defaultExtensionNs="com.intellij">
+        <statusBarWidgetFactory id="TimeTrackerWidget" 
+                              implementation="com.example.timetracker.TimeTrackerWidgetFactory"
+                              order="first"/>
+    </extensions>
+
+    <applicationListeners>
+        <listener class="com.example.timetracker.FileEditorListener"
+                  topic="com.intellij.openapi.fileEditor.FileEditorManagerListener"/>
+    </applicationListeners>
+</idea-plugin>
